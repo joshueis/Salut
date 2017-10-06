@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5261EBF623912881C7559E05 /* Pods_Salut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B93E8B08DDB4CA2E1136952 /* Pods_Salut.framework */; };
+		F977E5991F86E1F3009E29CA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A870F41F86C50800D6272B /* SWRevealViewController.m */; };
+		F977E59B1F874A74009E29CA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E59A1F874A74009E29CA /* GradientView.swift */; };
+		F977E59E1F87522F009E29CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E59D1F87522E009E29CA /* Constants.swift */; };
+		F977E5A01F87555E009E29CA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E59F1F87555E009E29CA /* LoginVC.swift */; };
 		F9A870DB1F86C4A400D6272B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A870DA1F86C4A400D6272B /* AppDelegate.swift */; };
-		F9A870DD1F86C4A400D6272B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A870DC1F86C4A400D6272B /* ViewController.swift */; };
 		F9A870E01F86C4A400D6272B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A870DE1F86C4A400D6272B /* Main.storyboard */; };
 		F9A870E31F86C4A400D6272B /* Salut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9A870E11F86C4A400D6272B /* Salut.xcdatamodeld */; };
 		F9A870E51F86C4A400D6272B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A870E41F86C4A400D6272B /* Assets.xcassets */; };
 		F9A870E81F86C4A400D6272B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A870E61F86C4A400D6272B /* LaunchScreen.storyboard */; };
+		F9A870F71F86C57300D6272B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A870F61F86C57300D6272B /* ChatVC.swift */; };
+		F9A870F91F86C5AC00D6272B /* ChannelsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A870F81F86C5AC00D6272B /* ChannelsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4005BB9BEA4531832C41852E /* Pods-Salut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Salut/Pods-Salut.debug.xcconfig"; sourceTree = "<group>"; };
+		4B93E8B08DDB4CA2E1136952 /* Pods_Salut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Salut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91CB0D90F0BBC5877745AEA7 /* Pods-Salut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salut.release.xcconfig"; path = "Pods/Target Support Files/Pods-Salut/Pods-Salut.release.xcconfig"; sourceTree = "<group>"; };
+		F977E59A1F874A74009E29CA /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F977E59D1F87522E009E29CA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F977E59F1F87555E009E29CA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F9A870D71F86C4A400D6272B /* Salut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Salut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A870DA1F86C4A400D6272B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9A870DC1F86C4A400D6272B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F9A870DF1F86C4A400D6272B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9A870E21F86C4A400D6272B /* Salut.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Salut.xcdatamodel; sourceTree = "<group>"; };
 		F9A870E41F86C4A400D6272B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9A870E71F86C4A400D6272B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9A870E91F86C4A400D6272B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9A870F31F86C50700D6272B /* Salut-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Salut-Bridging-Header.h"; sourceTree = "<group>"; };
+		F9A870F41F86C50800D6272B /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		F9A870F51F86C50800D6272B /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		F9A870F61F86C57300D6272B /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		F9A870F81F86C5AC00D6272B /* ChannelsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5261EBF623912881C7559E05 /* Pods_Salut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A971F7B52353BBCC35BDF66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4005BB9BEA4531832C41852E /* Pods-Salut.debug.xcconfig */,
+				91CB0D90F0BBC5877745AEA7 /* Pods-Salut.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		71A6987C089E50B7B928B313 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B93E8B08DDB4CA2E1136952 /* Pods_Salut.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F977E59C1F87521C009E29CA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F977E59D1F87522E009E29CA /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		F9A870CE1F86C4A400D6272B = {
 			isa = PBXGroup;
 			children = (
 				F9A870D91F86C4A400D6272B /* Salut */,
 				F9A870D81F86C4A400D6272B /* Products */,
+				3A971F7B52353BBCC35BDF66 /* Pods */,
+				71A6987C089E50B7B928B313 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +100,12 @@
 		F9A870D91F86C4A400D6272B /* Salut */ = {
 			isa = PBXGroup;
 			children = (
+				F977E59C1F87521C009E29CA /* Utilities */,
+				F9A870F01F86C4B100D6272B /* Supporting Files */,
+				F9A870F11F86C4CA00D6272B /* Model */,
+				F9A870F21F86C4D200D6272B /* View */,
+				F9A870EF1F86C4AA00D6272B /* Controller */,
 				F9A870DA1F86C4A400D6272B /* AppDelegate.swift */,
-				F9A870DC1F86C4A400D6272B /* ViewController.swift */,
 				F9A870DE1F86C4A400D6272B /* Main.storyboard */,
 				F9A870E41F86C4A400D6272B /* Assets.xcassets */,
 				F9A870E61F86C4A400D6272B /* LaunchScreen.storyboard */,
@@ -67,6 +115,41 @@
 			path = Salut;
 			sourceTree = "<group>";
 		};
+		F9A870EF1F86C4AA00D6272B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F9A870F61F86C57300D6272B /* ChatVC.swift */,
+				F9A870F81F86C5AC00D6272B /* ChannelsVC.swift */,
+				F977E59F1F87555E009E29CA /* LoginVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F9A870F01F86C4B100D6272B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9A870F51F86C50800D6272B /* SWRevealViewController.h */,
+				F9A870F41F86C50800D6272B /* SWRevealViewController.m */,
+				F9A870F31F86C50700D6272B /* Salut-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9A870F11F86C4CA00D6272B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F9A870F21F86C4D200D6272B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F977E59A1F874A74009E29CA /* GradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9A870EC1F86C4A400D6272B /* Build configuration list for PBXNativeTarget "Salut" */;
 			buildPhases = (
+				3D52F8B222FD62BEF1D3E1B7 /* [CP] Check Pods Manifest.lock */,
 				F9A870D31F86C4A400D6272B /* Sources */,
 				F9A870D41F86C4A400D6272B /* Frameworks */,
 				F9A870D51F86C4A400D6272B /* Resources */,
+				0E077AA498B862C96D88CD41 /* [CP] Embed Pods Frameworks */,
+				1681AC3B7C3B3F8D7A7A01B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -99,6 +185,7 @@
 				TargetAttributes = {
 					F9A870D61F86C4A400D6272B = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -134,12 +221,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E077AA498B862C96D88CD41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Salut/Pods-Salut-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1681AC3B7C3B3F8D7A7A01B3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Salut/Pods-Salut-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D52F8B222FD62BEF1D3E1B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F9A870D31F86C4A400D6272B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A870DD1F86C4A400D6272B /* ViewController.swift in Sources */,
+				F977E5991F86E1F3009E29CA /* SWRevealViewController.m in Sources */,
+				F9A870F91F86C5AC00D6272B /* ChannelsVC.swift in Sources */,
+				F977E5A01F87555E009E29CA /* LoginVC.swift in Sources */,
+				F977E59B1F874A74009E29CA /* GradientView.swift in Sources */,
+				F9A870F71F86C57300D6272B /* ChatVC.swift in Sources */,
+				F977E59E1F87522F009E29CA /* Constants.swift in Sources */,
 				F9A870E31F86C4A400D6272B /* Salut.xcdatamodeld in Sources */,
 				F9A870DB1F86C4A400D6272B /* AppDelegate.swift in Sources */,
 			);
@@ -276,14 +416,18 @@
 		};
 		F9A870ED1F86C4A400D6272B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4005BB9BEA4531832C41852E /* Pods-Salut.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWBPXCHKFW;
 				INFOPLIST_FILE = Salut/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iRa.ios.Salut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Salut/Supporting Files/Salut-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -291,14 +435,17 @@
 		};
 		F9A870EE1F86C4A400D6272B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91CB0D90F0BBC5877745AEA7 /* Pods-Salut.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWBPXCHKFW;
 				INFOPLIST_FILE = Salut/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iRa.ios.Salut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Salut/Supporting Files/Salut-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
