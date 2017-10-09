@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ChannelsVC: UIViewController {
-
+class ChannelsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
     @IBOutlet weak var loginBtn: UIButton!
-    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
     override func viewDidLoad() {
         super.viewDidLoad()
         //how wide we want the menu to be
@@ -19,10 +19,15 @@ class ChannelsVC: UIViewController {
     }
     @IBAction func loginBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
     
-
-    
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        return cell
+    }
 }
