@@ -54,9 +54,10 @@ class AvatarVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         return 28
     }
     
+    //set up the size according to the device's screen
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var numOfCol : CGFloat = 3
+        var numOfCol : CGFloat = 3 // for regular width
         if (UIScreen.main.bounds.width > 320){
             numOfCol = 4
         }

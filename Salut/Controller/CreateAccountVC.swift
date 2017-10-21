@@ -24,9 +24,14 @@ class CreateAccountVC: UIViewController {
 
       
     }
+    
+    //
     override func viewDidAppear(_ animated: Bool) {
-        if UserDataService.instance.avatarName != ""{print("asdf")
+        
+        //update if we have an avatar selected
+        if UserDataService.instance.avatarName != ""{
             avtrName = UserDataService.instance.avatarName
+            //avatar name mapped to image file name -> set it up
             userImg.image = UIImage(named: avtrName)
             
         }
