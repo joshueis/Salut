@@ -14,18 +14,20 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     //user data
     var avtrName = "profileDefault"
-    var avtrColor = "[0.5, 0.5, 0.5, 1]" //set it to gray
+    var avtrColor = "[0.5, 0.5, 0.5, 1]" //set it to gray RGB color with alpha-> transparency
+    var bgColor : UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      
+        setupView()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.hideKB))
+        view.addGestureRecognizer(tap)
     }
     
-    //
     override func viewDidAppear(_ animated: Bool) {
         
         //update if we have an avatar selected
@@ -33,9 +35,24 @@ class CreateAccountVC: UIViewController {
             avtrName = UserDataService.instance.avatarName
             //avatar name mapped to image file name -> set it up
             userImg.image = UIImage(named: avtrName)
+            if avtrName.contains("light") && bgColor == nil{
+                userImg.backgroundColor = UIColor.lightGray
+            }
             
         }
         
+    }
+    
+    @objc func hideKB(){
+        view.endEditing(true)
+    }
+    func setupView(){
+        //hide the spinner initially
+        spinner.isHidden = true
+        //set up the color of the placeholder in textfields
+        userNameTF.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: PURPLEPH])
+        emailTF.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor: PURPLEPH])
+        //for password I'm using custom UITextField to show different approach
     }
     
     @IBAction func closePressed(_ sender: Any) {
@@ -47,10 +64,21 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func pickBGColorPressed(_ sender: Any) {
+        //generate a number to create colors
+        let r = CGFloat(arc4random_uniform(255)) / 255
+        let g = CGFloat(arc4random_uniform(255)) / 255
+        let b = CGFloat(arc4random_uniform(255)) / 255
+        bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avtrColor = "[\(r), \(g), \(b), 1"
+        self.userImg.backgroundColor = bgColor
         
     }
     
     @IBAction func createAccPressed(_ sender: Any) {
+        
+        //show spinner
+        spinner.isHidden = false
+        spinner.startAnimating()
         
         //unwrap optionals with guard let, the come states the where clause
         guard let name = userNameTF.text, userNameTF.text != "" else {return}
@@ -63,8 +91,13 @@ class CreateAccountVC: UIViewController {
                     if (success){
                         AuthService.instance.createUser(name: name, email: email, avtrName: self.avtrName, color: self.avtrColor, completion: { (success) in
                             if(success){
+                                //AuthService.instance.isLogedIn = true
                                 print(UserDataService.instance.name, UserDataService.instance.avatarName)
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
+                                //after user succesfully logs in, post it to notification center
+                                NotificationCenter.default.post(name : DATA_DID_CHANGE_NOTIF, object: nil)
                             }                        
                             
                         })

@@ -8,16 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		5261EBF623912881C7559E05 /* Pods_Salut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B93E8B08DDB4CA2E1136952 /* Pods_Salut.framework */; };
+		F903E27D1FBCD38C00F8A29B /* HelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E27C1FBCD38C00F8A29B /* HelpService.swift */; };
+		F903E27F1FBCF83A00F8A29B /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E27E1FBCF83A00F8A29B /* SocketService.swift */; };
 		F91299421F8B23DB00BC489B /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91299411F8B23DB00BC489B /* RoundedButton.swift */; };
 		F91299441F8B2EB500BC489B /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91299431F8B2EB500BC489B /* UserDataService.swift */; };
 		F955C4CF1F8B4149008037AF /* AvatarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955C4CE1F8B4149008037AF /* AvatarVC.swift */; };
 		F955C4D11F8B4287008037AF /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955C4D01F8B4287008037AF /* AvatarCell.swift */; };
+		F955C4D31F9AFAFF008037AF /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955C4D21F9AFAFF008037AF /* CircleImage.swift */; };
+		F955C4D51F9AFD8A008037AF /* ColoredPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955C4D41F9AFD8A008037AF /* ColoredPlaceHolder.swift */; };
 		F977E5991F86E1F3009E29CA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A870F41F86C50800D6272B /* SWRevealViewController.m */; };
 		F977E59B1F874A74009E29CA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E59A1F874A74009E29CA /* GradientView.swift */; };
 		F977E59E1F87522F009E29CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E59D1F87522E009E29CA /* Constants.swift */; };
 		F977E5A01F87555E009E29CA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E59F1F87555E009E29CA /* LoginVC.swift */; };
 		F977E5A21F875720009E29CA /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E5A11F875720009E29CA /* CreateAccountVC.swift */; };
 		F977E5A51F87F2EC009E29CA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977E5A41F87F2EC009E29CA /* AuthService.swift */; };
+		F9850F671FAD02DD00DF3491 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9850F651FAD02DD00DF3491 /* ProfileVC.swift */; };
+		F9850F681FAD02DD00DF3491 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9850F661FAD02DD00DF3491 /* ProfileVC.xib */; };
+		F9850F6B1FBBEC3B00DF3491 /* MsgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9850F6A1FBBEC3B00DF3491 /* MsgService.swift */; };
+		F9850F6D1FBBEC6A00DF3491 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9850F6C1FBBEC6A00DF3491 /* Channel.swift */; };
+		F9850F6F1FBBF20300DF3491 /* ChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9850F6E1FBBF20300DF3491 /* ChannelViewCell.swift */; };
+		F9850F711FBBFB4500DF3491 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9850F701FBBFB4500DF3491 /* Message.swift */; };
+		F9850F741FBBFC3500DF3491 /* AddChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9850F721FBBFC3500DF3491 /* AddChannelVC.swift */; };
+		F9850F751FBBFC3500DF3491 /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9850F731FBBFC3500DF3491 /* AddChannelVC.xib */; };
 		F9A870DB1F86C4A400D6272B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A870DA1F86C4A400D6272B /* AppDelegate.swift */; };
 		F9A870E01F86C4A400D6272B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A870DE1F86C4A400D6272B /* Main.storyboard */; };
 		F9A870E31F86C4A400D6272B /* Salut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9A870E11F86C4A400D6272B /* Salut.xcdatamodeld */; };
@@ -31,15 +43,27 @@
 		4005BB9BEA4531832C41852E /* Pods-Salut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Salut/Pods-Salut.debug.xcconfig"; sourceTree = "<group>"; };
 		4B93E8B08DDB4CA2E1136952 /* Pods_Salut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Salut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CB0D90F0BBC5877745AEA7 /* Pods-Salut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salut.release.xcconfig"; path = "Pods/Target Support Files/Pods-Salut/Pods-Salut.release.xcconfig"; sourceTree = "<group>"; };
+		F903E27C1FBCD38C00F8A29B /* HelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpService.swift; sourceTree = "<group>"; };
+		F903E27E1FBCF83A00F8A29B /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		F91299411F8B23DB00BC489B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		F91299431F8B2EB500BC489B /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		F955C4CE1F8B4149008037AF /* AvatarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarVC.swift; sourceTree = "<group>"; };
 		F955C4D01F8B4287008037AF /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		F955C4D21F9AFAFF008037AF /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		F955C4D41F9AFD8A008037AF /* ColoredPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredPlaceHolder.swift; sourceTree = "<group>"; };
 		F977E59A1F874A74009E29CA /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F977E59D1F87522E009E29CA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F977E59F1F87555E009E29CA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F977E5A11F875720009E29CA /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		F977E5A41F87F2EC009E29CA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		F9850F651FAD02DD00DF3491 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		F9850F661FAD02DD00DF3491 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		F9850F6A1FBBEC3B00DF3491 /* MsgService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgService.swift; sourceTree = "<group>"; };
+		F9850F6C1FBBEC6A00DF3491 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		F9850F6E1FBBF20300DF3491 /* ChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewCell.swift; sourceTree = "<group>"; };
+		F9850F701FBBFB4500DF3491 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F9850F721FBBFC3500DF3491 /* AddChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelVC.swift; sourceTree = "<group>"; };
+		F9850F731FBBFC3500DF3491 /* AddChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelVC.xib; sourceTree = "<group>"; };
 		F9A870D71F86C4A400D6272B /* Salut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Salut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A870DA1F86C4A400D6272B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A870DF1F86C4A400D6272B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,8 +120,20 @@
 			children = (
 				F977E5A41F87F2EC009E29CA /* AuthService.swift */,
 				F91299431F8B2EB500BC489B /* UserDataService.swift */,
+				F9850F6A1FBBEC3B00DF3491 /* MsgService.swift */,
+				F903E27C1FBCD38C00F8A29B /* HelpService.swift */,
+				F903E27E1FBCF83A00F8A29B /* SocketService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F9850F691FAD02F500DF3491 /* XIB's */ = {
+			isa = PBXGroup;
+			children = (
+				F9850F661FAD02DD00DF3491 /* ProfileVC.xib */,
+				F9850F731FBBFC3500DF3491 /* AddChannelVC.xib */,
+			);
+			path = "XIB's";
 			sourceTree = "<group>";
 		};
 		F9A870CE1F86C4A400D6272B = {
@@ -121,6 +157,7 @@
 		F9A870D91F86C4A400D6272B /* Salut */ = {
 			isa = PBXGroup;
 			children = (
+				F9850F691FAD02F500DF3491 /* XIB's */,
 				F977E5A31F87F2DB009E29CA /* Services */,
 				F977E59C1F87521C009E29CA /* Utilities */,
 				F9A870F01F86C4B100D6272B /* Supporting Files */,
@@ -145,6 +182,8 @@
 				F977E59F1F87555E009E29CA /* LoginVC.swift */,
 				F977E5A11F875720009E29CA /* CreateAccountVC.swift */,
 				F955C4CE1F8B4149008037AF /* AvatarVC.swift */,
+				F9850F651FAD02DD00DF3491 /* ProfileVC.swift */,
+				F9850F721FBBFC3500DF3491 /* AddChannelVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,6 +201,8 @@
 		F9A870F11F86C4CA00D6272B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F9850F6C1FBBEC6A00DF3491 /* Channel.swift */,
+				F9850F701FBBFB4500DF3491 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +213,9 @@
 				F977E59A1F874A74009E29CA /* GradientView.swift */,
 				F91299411F8B23DB00BC489B /* RoundedButton.swift */,
 				F955C4D01F8B4287008037AF /* AvatarCell.swift */,
+				F955C4D21F9AFAFF008037AF /* CircleImage.swift */,
+				F955C4D41F9AFD8A008037AF /* ColoredPlaceHolder.swift */,
+				F9850F6E1FBBF20300DF3491 /* ChannelViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +283,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9850F751FBBFC3500DF3491 /* AddChannelVC.xib in Resources */,
+				F9850F681FAD02DD00DF3491 /* ProfileVC.xib in Resources */,
 				F9A870E81F86C4A400D6272B /* LaunchScreen.storyboard in Resources */,
 				F9A870E51F86C4A400D6272B /* Assets.xcassets in Resources */,
 				F9A870E01F86C4A400D6272B /* Main.storyboard in Resources */,
@@ -301,10 +347,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F977E5991F86E1F3009E29CA /* SWRevealViewController.m in Sources */,
+				F903E27D1FBCD38C00F8A29B /* HelpService.swift in Sources */,
 				F9A870F91F86C5AC00D6272B /* ChannelsVC.swift in Sources */,
+				F9850F6D1FBBEC6A00DF3491 /* Channel.swift in Sources */,
 				F955C4D11F8B4287008037AF /* AvatarCell.swift in Sources */,
 				F977E5A01F87555E009E29CA /* LoginVC.swift in Sources */,
 				F977E59B1F874A74009E29CA /* GradientView.swift in Sources */,
+				F9850F741FBBFC3500DF3491 /* AddChannelVC.swift in Sources */,
+				F903E27F1FBCF83A00F8A29B /* SocketService.swift in Sources */,
+				F9850F711FBBFB4500DF3491 /* Message.swift in Sources */,
 				F9A870F71F86C57300D6272B /* ChatVC.swift in Sources */,
 				F977E5A21F875720009E29CA /* CreateAccountVC.swift in Sources */,
 				F91299441F8B2EB500BC489B /* UserDataService.swift in Sources */,
@@ -313,7 +364,12 @@
 				F977E5A51F87F2EC009E29CA /* AuthService.swift in Sources */,
 				F955C4CF1F8B4149008037AF /* AvatarVC.swift in Sources */,
 				F9A870E31F86C4A400D6272B /* Salut.xcdatamodeld in Sources */,
+				F9850F671FAD02DD00DF3491 /* ProfileVC.swift in Sources */,
 				F9A870DB1F86C4A400D6272B /* AppDelegate.swift in Sources */,
+				F9850F6F1FBBF20300DF3491 /* ChannelViewCell.swift in Sources */,
+				F9850F6B1FBBEC3B00DF3491 /* MsgService.swift in Sources */,
+				F955C4D51F9AFD8A008037AF /* ColoredPlaceHolder.swift in Sources */,
+				F955C4D31F9AFAFF008037AF /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

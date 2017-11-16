@@ -62,16 +62,16 @@ class AuthService{
         let body : [String:Any] = [
             "email" : lowerCaseEmail,
             "password" : passw]
-        
+    
         Alamofire.request(URL_LOG, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON{ (response) in
             if response.result.error == nil{
                 
                 //using swifty JSON
                 guard let data = response.data else {return}
                 let json = JSON(data)
-                self.userEmail = json["email"].stringValue
+                self.userEmail = json["user"].stringValue
                 self.authToken = json["token"].stringValue
-                
+                self.isLogedIn = true
                 completion(true)
             }else{
                 completion(false)
@@ -79,6 +79,7 @@ class AuthService{
             }
         
         }
+        
     }
     
     func createUser(name: String, email:String, avtrName: String, color: String, completion: @escaping CompletionHandler){
@@ -89,23 +90,11 @@ class AuthService{
             "email" : lowerCaseEmail,
             "avatarName": avtrName,
             "avatarColor" : color]
-        let header = [
-            "Authorization" : "Bearer \(AuthService.instance.authToken)",
-            "Content-Type" : "application/json; charset=utf-8"
-        ]
         
-        Alamofire.request(URL_ADD_USR, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON{ (response) in
+        Alamofire.request(URL_ADD_USR, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON{ (response) in
             if response.result.error == nil{
                 guard let data = response.data else {return}
-                let json = JSON(data: data)
-                
-                let id = json["_id"].stringValue
-                let color = json["avatarColor"].stringValue
-                let avtrName = json["avatarName"].stringValue
-                let email = json["email"].stringValue
-                let name = json["name"].stringValue
-                
-                UserDataService.instance.setUserData(id: id, color: color, avtrName: avtrName, email: email, name: name)
+                self.setUserInfo(data: data)
                 completion(true)
             }else{
                 completion(false)
@@ -114,4 +103,32 @@ class AuthService{
         }
         
     }
+    func findUserByEmail(completion: @escaping CompletionHandler){
+        
+        Alamofire.request("\(URL_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            
+            if response.result.error == nil{
+                guard let data = response.data else {return}
+                self.setUserInfo(data: data)
+                //print(" asdf" + UserDataService.instance.avatarColor + UserDataService.instance.avatarName)
+                completion(true)
+            }else{
+                completion(false)
+                debugPrint(response.error as Any)
+            }
+        }
+    }
+    
+    func setUserInfo(data: Data){
+        let json = JSON(data: data)
+        
+        let id = json["_id"].stringValue
+        let color = json["avatarColor"].stringValue
+        let avtrName = json["avatarName"].stringValue
+        let email = json["email"].stringValue
+        let name = json["name"].stringValue
+        
+        UserDataService.instance.setUserData(id: id, color: color, avtrName: avtrName, email: email, name: name)
+    }
+    
 }
