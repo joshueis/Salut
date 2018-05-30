@@ -27,7 +27,7 @@ let URL_ADD_USR = "\(BASE_URL)user/add"
 let URL_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 let URL_GET_CHANNEL = "\(BASE_URL)channel"
 let URL_ADD_CHANNEL = "\(BASE_URL)channel/add"
-let URL_GET_MESSAGE = "\(BASE_URL)message/byChannel"
+let URL_GET_MESSAGE = "\(BASE_URL)message/byChannel/"
 //Notifications
 let DATA_DID_CHANGE_NOTIF = Notification.Name("notifUserDataChanged")
 let CHANNELS_CHANGE_NOTIF = Notification.Name("channelsChanged")

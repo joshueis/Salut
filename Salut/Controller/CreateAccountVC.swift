@@ -24,8 +24,7 @@ class CreateAccountVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.hideKB))
-        view.addGestureRecognizer(tap)
+        view.addHideKbOnTouch()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,14 +37,9 @@ class CreateAccountVC: UIViewController {
             if avtrName.contains("light") && bgColor == nil{
                 userImg.backgroundColor = UIColor.lightGray
             }
-            
         }
-        
     }
-    
-    @objc func hideKB(){
-        view.endEditing(true)
-    }
+
     func setupView(){
         //hide the spinner initially
         spinner.isHidden = true
