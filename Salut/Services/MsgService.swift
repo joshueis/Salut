@@ -15,6 +15,7 @@ class MsgService{
     var channels = [Channel]()
     var selectedChannel : Channel?
     var msgs = [Message]()
+    var unreadChannels = [String]()
     
     func getMsgsForChannel(channelId: String, completion: @escaping CompletionHandler){
         Alamofire.request("\(URL_GET_MESSAGE)\(channelId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
@@ -22,6 +23,8 @@ class MsgService{
                 guard let data = response.data else {return}
                 // response will be an array of
                 if let json = JSON(data: data).array{
+                    //clear messages, perhaps from previous channels
+                    self.clearMessages()
                     for item in json {
                         let msgBody = item["messageBody"].stringValue
                         let channelId = item["channeId"].stringValue
@@ -66,7 +69,7 @@ class MsgService{
                 guard let data = response.data else {return}
                 /* Swift 4
                     This way of parsing using JSON decoder needs a model matching all properties of the json file
-                    and the type need to match as well, it takes one line of code
+                    and the type needs to match as well, it takes one line of code
                  do {
                  self.channels = try JSONDecoder().decode([Channel].self, from: data)
                  }catch let error{

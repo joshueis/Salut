@@ -51,4 +51,30 @@ class SocketService: NSObject {
         //completion(true)
     }
     
+    func getChatMessage(completion: @escaping (_ newMsg: Message) -> Void ) {
+        socket.on("messageCreated") { (dataArray, ack) in
+            guard let msgBody = dataArray[0] as? String else {return}
+            guard let channelId = dataArray[1] as? String else {return}
+            guard let usrName = dataArray[2] as? String else {return}
+            guard let usrAvtr = dataArray[3] as? String else {return}
+            guard let usrAvtrColor = dataArray[4] as? String else {return}
+            guard let id = dataArray[5] as? String else {return}
+            guard let timeStamp = dataArray[6] as? String else {return}
+            
+            let newMsg = Message(userName: usrName, channelId: channelId, usrAvatar: usrAvtr, usrAvtrColor: usrAvtrColor, userId: id, message: msgBody, timeStamp: timeStamp)
+            
+            completion(newMsg)
+            
+        
+        }
+    }
+    
+    func getTypingUsrs(_ completionHandler: @escaping (_ typingUsers: [String:String]) -> Void){
+        socket.on("userTypingUpdate") { (dataArray, ack) in
+            // dictionary with user : channel
+            guard let typingUsrs = dataArray[0] as? [String:String] else {return}
+            completionHandler(typingUsrs)
+        }
+    }
+    
 }

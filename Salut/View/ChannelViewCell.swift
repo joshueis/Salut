@@ -32,6 +32,13 @@ class ChannelViewCell: UITableViewCell {
         // ?? if not found or nil then do ""
         let tittle = channel.tittle ?? ""
         channelName.text = "#\(tittle)"
+        
+        //set default font to be able to distinguish it from bold font when channel has new items
+        channelName.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
+        //if the channel has unread messages then bold it's name
+        if MsgService.instance.unreadChannels.contains(channel.id){
+            channelName.font = UIFont(name: "HelveticaNeue-Bold", size: 22)
+        }
     }
 
 }

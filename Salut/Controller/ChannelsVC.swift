@@ -29,6 +29,13 @@ class ChannelsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //listen to any channels added
         SocketService.instance.getChannel()
+        
+        SocketService.instance.getChatMessage { (newMsg) in
+            if newMsg.channelId != MsgService.instance.selectedChannel?.id && AuthService.instance.isLogedIn {
+                MsgService.instance.unreadChannels.append(newMsg.channelId)
+                self.channelTable.reloadData()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -101,6 +108,16 @@ class ChannelsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = MsgService.instance.channels[indexPath.row]
         MsgService.instance.selectedChannel = channel
+        if MsgService.instance.unreadChannels.contains(channel.id){
+            //filtering with predicate to delete the desired item in lieu of index = indexOf(channelId) ... removeAt(index)
+            MsgService.instance.unreadChannels = MsgService.instance.unreadChannels.filter{$0 != channel.id}
+        }
+        //there is an issue, the following reselect the row
+        let index = IndexPath(row: indexPath.row, section: 0)
+        channelTable.reloadRows(at: [index], with: .none)
+        channelTable.selectRow(at: index, animated: false, scrollPosition: .none)
+        
+        
         NotificationCenter.default.post(name: CHANNELS_SELECTED_NOTIF, object: nil)
         // close menu/channelVC after item is selected
         self.revealViewController().revealToggle(animated: true)

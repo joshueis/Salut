@@ -14,14 +14,23 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var channelLbl: UILabel!
     @IBOutlet weak var messageTF: ColoredPlaceHolder!
     @IBOutlet weak var msgTable: UITableView!
+    @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var typingLbl: UILabel!
+    
+    // Variables
+    var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //comfort protocols needed for UITableView
         msgTable.delegate = self
         msgTable.dataSource = self
         //Allow messages to be completely display no matter what their length is
         msgTable.estimatedRowHeight = 80
         msgTable.rowHeight = UITableViewAutomaticDimension
+        //set send button to be hidden by default
+        sendBtn.isHidden = true
+        
         view.bindToKeyboard()
         view.addHideKbOnTouch()
         // MARK: - to use reveal View controller next
@@ -33,8 +42,57 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected), name: CHANNELS_SELECTED_NOTIF, object: nil)
         
+//        SocketService.instance.getChatMessage { (success) in
+//            if success {
+//                self.msgTable.reloadData()
+//                //scroll to bottom of message
+//                if MsgService.instance.msgs.count > 0 {
+//                    let endIndex = IndexPath(row: MsgService.instance.msgs.count - 1, section: 0)
+//                    self.msgTable.scrollToRow(at: endIndex, at: .bottom, animated: false)
+//                }
+//            }
+//        }
+        
+        //access new message
+        SocketService.instance.getChatMessage { (newMsg) in
+            if newMsg.channelId == MsgService.instance.selectedChannel?.id && AuthService.instance.isLogedIn {
+                MsgService.instance.msgs.append(newMsg)
+                self.msgTable.reloadData()
+                if MsgService.instance.msgs.count > 0 {
+                    let endIndex = IndexPath(row: MsgService.instance.msgs.count - 1, section: 0)
+                    self.msgTable.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
+            }
+        }
+        
+        SocketService.instance.getTypingUsrs { (typingUsrs) in
+            guard let channelId = MsgService.instance.selectedChannel?.id else { return}
+            var names = ""
+            var numOfTypers = 0
+            for (typingUsr, channel) in typingUsrs{
+                if typingUsr != UserDataService.instance.name && channel == channelId {
+                    if names == "" {
+                        names = typingUsr
+                    } else {
+                        names = "\(names), \(typingUsrs) "
+                    }
+                    numOfTypers += 1
+                }
+            }
+            if numOfTypers > 0 && AuthService.instance.isLogedIn == true{
+                var verb = "is"
+                if numOfTypers > 1{
+                    verb = "are"
+                }
+                self.typingLbl.text = "\(names) \(verb) typing a message"
+            } else {
+                self.typingLbl.text = ""
+            }
+            
+        }
+        
         if AuthService.instance.isLogedIn {
-            //In the case we are logged in and the up is open after being closed, retrieve user's info
+            //In the case we are logged in and the app is open after being closed, retrieve user's info
             // send notification to populate ui
             AuthService.instance.findUserByEmail(completion: { (success) in
                 NotificationCenter.default.post(name: DATA_DID_CHANGE_NOTIF, object: nil)
@@ -55,6 +113,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             onLoginGetMessages()
         }else{
             HelpService.instance.createAlert(title: "Error", message: "Please Log In!", view: self)
+            msgTable.reloadData()
         }
     }
     
@@ -82,14 +141,32 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @IBAction func messageBoxEditing(_ sender: Any) {
+        guard let channelId = MsgService.instance.selectedChannel?.id else {return}
+        if messageTF.text == "" {
+            isTyping = false
+            sendBtn.isHidden = true
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId )
+        } else {
+            if isTyping == false{
+                sendBtn.isHidden = false
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
+            }
+            isTyping = true
+            
+        }
+        
+    }
     @IBAction func sendMsg(_ sender: Any) {
         if AuthService.instance.isLogedIn{
-            guard let channelID = MsgService.instance.selectedChannel?.id else {return}
+            guard let channelId = MsgService.instance.selectedChannel?.id else {return}
             guard let msg = messageTF.text, messageTF.text != "" else {return}
-            SocketService.instance.addMessage(msg: msg, userID: UserDataService.instance.id, channelId: channelID)
+            SocketService.instance.addMessage(msg: msg, userID: UserDataService.instance.id, channelId: channelId)
             //clear text field and dismiss keyboard
             self.messageTF.text = ""
             self.messageTF.resignFirstResponder()
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
+            
         }
         
         
@@ -110,7 +187,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.configCell(msg: msg)
             return cell
         }else{
-            return MessageCell()
+            return UITableViewCell()
         }
     }
     
